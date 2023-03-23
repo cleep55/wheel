@@ -1,22 +1,74 @@
-var students = [
-  {name: 'Alfred'},
-  {name: 'Angel'},
-  {name: 'Asma'},
-  {name: 'Aswad'},
-  {name: 'Chris Carpio'},
-  {name: 'Chris Gomez'},
-  {name: 'David'},
-  {name: 'Edgar'},
-  {name: 'Eyerin'},
-  {name: 'Ian'},
-  {name: 'Jereny'},
-  {name: 'Joshua'},
-  {name: 'Mac'},
-  {name: 'Meylan'},
-  {name: 'Nestasia'},
-  {name: 'Randy'},
-  {name: 'Rashamel'},
-  {name: 'Sidney'}
+// var students = [
+//   {name: 'Alfred'},
+//   {name: 'Angel'},
+//   {name: 'Asma'},
+//   {name: 'Aswad'},
+//   {name: 'Chris Carpio'},
+//   {name: 'Chris Gomez'},
+//   {name: 'David'},
+//   {name: 'Edgar'},
+//   {name: 'Eyerin'},
+//   {name: 'Ian'},
+//   {name: 'Jereny'},
+//   {name: 'Joshua'},
+//   {name: 'Mac'},
+//   {name: 'Meylan'},
+//   {name: 'Nestasia'},
+//   {name: 'Randy'},
+//   {name: 'Rashamel'},
+//   {name: 'Sidney'}
+// ];
+var states = [
+  {name: 'Alabama'},
+  {name: 'Alaska'},
+  {name: 'Arizona'},
+  {name: 'Arkansas'},
+  {name: 'California'},
+  {name: 'Colorado'},
+  {name: 'Connecticut'},
+  {name: 'Delaware'},
+  {name: 'Florida'},
+  {name: 'Georgia'},
+  {name: 'Hawaii'},
+  {name: 'Idaho'},
+  {name: 'Illinois'},
+  {name: 'Indiana'},
+  {name: 'Iowa'},
+  {name: 'Kansas'},
+  {name: 'Kentucky'},
+  {name: 'Louisiana'},
+  {name: 'Maine'},
+  {name: 'Maryland'},
+  {name: 'Massachusetts'},
+  {name: 'Michigan'},
+  {name: 'Minnesota'},
+  {name: 'Mississippi'},
+  {name: 'Missouri'},
+  {name: 'Montana'},
+  {name: 'Nebraska'},
+  {name: 'Nevada'},
+  {name: 'New Hampshire'},
+  {name: 'New Jersey'},
+  {name: 'New Mexico'},
+  {name: 'New York'},
+  {name: 'North Carolina'},
+  {name: 'North Dakota'},
+  {name: 'Ohio'},
+  {name: 'Oklahoma'},
+  {name: 'Oregon'},
+  {name: 'Pennsylvania'},
+  {name: 'Rhode Island'},
+  {name: 'South Carolina'},
+  {name: 'South Dakota'},
+  {name: 'Tennessee'},
+  {name: 'Texas'},
+  {name: 'Utah'},
+  {name: 'Vermont'},
+  {name: 'Virginia'},
+  {name: 'Washington'},
+  {name: 'West Virginia'},
+  {name: 'Wisconsin'},
+  {name: 'Wyoming'}
 ];
 
 var shuffle = function (o) {
@@ -39,14 +91,56 @@ var mod = function (a, b) {
   return ((a % b) + b) % b;
 };
 
+// $(function () {
+//   var studentContainer = $('#students ul');
+//   students.forEach(function (student) {
+//     var name = student.name;
+//     studentContainer.append(
+//       $(document.createElement('li')).append(
+//         $(document.createElement('input')).attr({
+//           id: 'student-' + name,
+//           name: name,
+//           value: name,
+//           type: 'checkbox',
+//           checked: true
+//         }).change(function () {
+//           var cbox = $(this)[0];
+//           var segments = wheel.segments;
+//           var i = segments.indexOf(cbox.value);
+
+//           if (cbox.checked && i == -1) {
+//             segments.push(cbox.value);
+
+//           } else if (!cbox.checked && i != -1) {
+//             segments.splice(i, 1);
+//           }
+
+//           segments.sort();
+//           wheel.update();
+//         })
+//       ).append(
+//         $(document.createElement('label')).attr({
+//           'for': 'student-' + name
+//         }).text(name)));
+//   });
+
+//   $('#students ul>li').tsort('input', {
+//     attr: 'value'
+//   });
+
+  // var segments = [];
+  // $.each($('#students input:checked'), function (key, cbox) {
+  //   segments.push(cbox.value);
+  // });
+
 $(function () {
-  var studentContainer = $('#students ul');
-  students.forEach(function (student) {
-    var name = student.name;
-    studentContainer.append(
+  var stateContainer = $('#states ul');
+  states.forEach(function (state) {
+    var name = state.name;
+    stateContainer.append(
       $(document.createElement('li')).append(
         $(document.createElement('input')).attr({
-          id: 'student-' + name,
+          id: 'state-' + name,
           name: name,
           value: name,
           type: 'checkbox',
@@ -68,16 +162,16 @@ $(function () {
         })
       ).append(
         $(document.createElement('label')).attr({
-          'for': 'student-' + name
+          'for': 'state-' + name
         }).text(name)));
   });
 
-  $('#students ul>li').tsort('input', {
+  $('#states ul>li').tsort('input', {
     attr: 'value'
   });
 
   var segments = [];
-  $.each($('#students input:checked'), function (key, cbox) {
+  $.each($('#states input:checked'), function (key, cbox) {
     segments.push(cbox.value);
   });
 
